@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>刘潇洋 - Go后端开发工程师</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background: #e8e8e8;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .page {
+    width: 794px;
+    min-height: 1123px;
+    background: #fff;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ===== Left Sidebar ===== */
+  .sidebar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 164px;
+    background: #f0f4f8;
+    padding: 40px 18px 40px 24px;
+  }
+
+  .sidebar .name {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a3a5c;
+    margin-bottom: 32px;
+    line-height: 1.2;
+  }
+
+  .sidebar .s-block {
+    margin-bottom: 28px;
+  }
+
+  .sidebar .s-title {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #1a3a5c;
+    margin-bottom: 10px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #2c6faa;
+  }
+
+  .sidebar .s-row {
+    font-size: 9.5px;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 2px;
+  }
+
+  .sidebar .s-label {
+    color: #888;
+  }
+
+  /* ===== Main Content ===== */
+  .main {
+    margin-left: 164px;
+    padding: 24px 32px 40px 24px;
+  }
+
+  .section {
+    margin-bottom: 22px;
+  }
+
+  .section-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a3a5c;
+    padding-bottom: 6px;
+    border-bottom: 1.5px solid #d0d8e0;
+    margin-bottom: 14px;
+  }
+
+  /* Personal strengths list */
+  .strength-list {
+    font-size: 10.5px;
+    color: #444;
+    line-height: 1.8;
+  }
+
+  /* Work experience */
+  .exp-item {
+    margin-bottom: 18px;
+  }
+
+  .exp-item .exp-top {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 4px;
+  }
+
+  .exp-item .exp-company {
+    font-size: 11px;
+    font-weight: 700;
+    color: #1a3a5c;
+  }
+
+  .exp-item .exp-role {
+    font-size: 10.5px;
+    color: #2c6faa;
+    margin-left: 12px;
+  }
+
+  .exp-item .exp-date {
+    font-size: 10.5px;
+    color: #999;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  .exp-item .exp-sub {
+    font-size: 10px;
+    color: #666;
+    margin-bottom: 4px;
+  }
+
+  .exp-item .exp-label {
+    font-size: 9.5px;
+    color: #888;
+    margin-bottom: 2px;
+  }
+
+  .exp-item .exp-body {
+    font-size: 9.5px;
+    color: #444;
+    line-height: 1.8;
+  }
+
+  .exp-item .exp-desc {
+    font-size: 9.5px;
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 4px;
+  }
+
+  .exp-item .exp-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .exp-item .exp-list li {
+    font-size: 9.5px;
+    color: #444;
+    line-height: 1.8;
+    padding-left: 10px;
+    position: relative;
+  }
+
+  .exp-item .exp-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 4px;
+    height: 4px;
+    background: #2c6faa;
+    border-radius: 50%;
+  }
+
+  /* Project experience */
+  .proj-item {
+    margin-bottom: 14px;
+  }
+
+  .proj-item .proj-top {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 2px;
+  }
+
+  .proj-item .proj-name {
+    font-size: 10.5px;
+    font-weight: 700;
+    color: #1a3a5c;
+  }
+
+  .proj-item .proj-role {
+    font-size: 9.5px;
+    color: #2c6faa;
+    margin-left: 10px;
+  }
+
+  .proj-item .proj-date {
+    font-size: 9.5px;
+    color: #999;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  .proj-item .proj-label {
+    font-size: 9.5px;
+    color: #888;
+    margin-bottom: 2px;
+  }
+
+  .proj-item .proj-desc {
+    font-size: 9.5px;
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 4px;
+  }
+
+  .proj-item .proj-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .proj-item .proj-list li {
+    font-size: 9.5px;
+    color: #444;
+    line-height: 1.8;
+    padding-left: 10px;
+    position: relative;
+  }
+
+  .proj-item .proj-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 4px;
+    height: 4px;
+    background: #2c6faa;
+    border-radius: 50%;
+  }
+
+  /* Education */
+  .edu-row {
+    display: flex;
+    align-items: baseline;
+  }
+
+  .edu-row .edu-school {
+    font-size: 10.5px;
+    font-weight: 600;
+    color: #1a3a5c;
+  }
+
+  .edu-row .edu-degree {
+    font-size: 9.5px;
+    color: #666;
+    margin-left: 10px;
+  }
+
+  .edu-row .edu-date {
+    font-size: 9.5px;
+    color: #999;
+    margin-left: auto;
+  }
+
+  .num {
+    color: #2c6faa;
+    font-weight: 600;
+  }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .page { box-shadow: none; width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ========== LEFT SIDEBAR ========== -->
+  <div class="sidebar">
+    <div class="name">刘潇洋</div>
+
+    <div class="s-block">
+      <div class="s-title">个人信息</div>
+      <div class="s-row">性别：女</div>
+      <div class="s-row">年龄：29岁</div>
+      <div class="s-row">开发经验：8年</div>
+    </div>
+
+    <div class="s-block">
+      <div class="s-title">联系方式</div>
+      <div class="s-row">电话：18335834239</div>
+      <div class="s-row">微信：lby1227373690</div>
+      <div class="s-row">邮箱：1227373690@qq.com</div>
+    </div>
+
+    <div class="s-block">
+      <div class="s-title">求职意向</div>
+      <div class="s-row">意向岗位：Golang</div>
+      <div class="s-row">期望薪资：20-25K</div>
+      <div class="s-row">期望城市：北京</div>
+    </div>
+  </div>
+
+  <!-- ========== RIGHT MAIN CONTENT ========== -->
+  <div class="main">
+
+    <!-- 个人优势 -->
+    <div class="section">
+      <div class="section-title">个人优势</div>
+      <div class="strength-list">
+        1. 精通 Go 语言，深入理解 Goroutine、Channel 及 CSP 并发模型，擅长高并发编程与性能调优，有实际 GC 优化经验；<br>
+        2. 熟练使用 Gin、Kratos、GoFrame、Go-zero、gRPC 等主流 Web 与微服务框架，具备从0到1搭建及架构演进能力；<br>
+        3. 深入理解 MySQL 存储引擎、事务隔离级别、锁机制及索引优化，有丰富的慢查询分析与性能调优经验；<br>
+        4. 熟练掌握 Redis 五种数据类型、持久化机制、过期淘汰策略及大Key治理，有高并发缓存架构设计经验；<br>
+        5. 熟悉微服务全家桶：Kafka、protobuf、etcd、Docker，有 CI/CD 持续集成与持续部署实践经验；<br>
+        6. 具备大型项目重构经验，主导过腾讯体育App单体→微服务架构演进（QPS提升3倍，耗时降低66%-81%）；<br>
+        7. 具备完整用户增长工程经验，主导过广告投放全链路系统、增长活动中台及社区后端建设，<span class="num">投放转化ROI达2</span>；<br>
+        8. 注重代码质量，持续编写单元测试，项目增量覆盖率保持<span class="num">90%+</span>；<br>
+        9. 熟悉 LNMP 技术栈，具备扎实的 PHP 基础，可使用 Yii、ThinkPHP、Laravel 快速开发；<br>
+        10. 擅长 PProf 性能分析、全链路追踪及服务可观测性建设，能快速定位并解决线上问题。
+      </div>
+    </div>
+
+    <!-- 工作经历 -->
+    <div class="section">
+      <div class="section-title">工作经历</div>
+
+      <!-- 好未来 -->
+      <div class="exp-item">
+        <div class="exp-top">
+          <span class="exp-company">好未来教育科技集团 · 学而思网校</span>
+          <span class="exp-role">PHP/Go 高级开发工程师</span>
+          <span class="exp-date">2024.07 — 至今</span>
+        </div>
+        <div class="exp-sub">增长研发组（外包编制）</div>
+        <div class="exp-label">内容：</div>
+        <div class="exp-desc">负责学而思网校用户增长方向后端研发，主导广告投放系统、增长活动中台及社区系统架构设计与核心开发，支撑百万级用户增长全链路。</div>
+        <div class="exp-label">业绩：</div>
+        <ul class="exp-list">
+          <li>设计并实现投放-转化-付费全链路广告系统，覆盖运营端配置管理与数据看板、C端从广告点击→注册→下载→领流课→购正价课的完整漏斗，打通抖音、微信等多渠道归因追踪，<span class="num">投放转化ROI达到2</span></li>
+          <li>主导增长活动中台建设，沉淀图书扫码获客、AI打分比赛、老带新裂变等玩法模板，集成企业微信生态（客户获取、标签同步、消息触达），支撑高频营销活动快速上线</li>
+          <li>参与社区系统后端开发，使用 Go（Kratos）+ PHP 混合架构，保障社区内容生产与互动链路稳定性</li>
+          <li>推动代码审查规范与 Go 编码标准落地，提升团队工程效率</li>
+        </ul>
+      </div>
+
+      <!-- 牛基科技 -->
+      <div class="exp-item">
+        <div class="exp-top">
+          <span class="exp-company">北京牛基科技有限公司</span>
+          <span class="exp-role">Go 开发工程师</span>
+          <span class="exp-date">2023.03 — 2024.06</span>
+        </div>
+        <div class="exp-label">内容：</div>
+        <div class="exp-desc">主导私域运营平台从0到1开发，打通直播下单→课程开通→企微沉淀→数据监控全链路，配合阿里云短信引流，沉淀<span class="num">1.7万+</span>用户。</div>
+        <div class="exp-label">业绩：</div>
+        <ul class="exp-list">
+          <li>设计并落地私域下单开课系统，实时监听抖店/视频号订单变化，自动同步小鹅通课程开通，<span class="num">新用户增长率提升40%</span></li>
+          <li>Goroutine + Channel 并发优化企微好友同步，<span class="num">耗时由1小时+降至分钟级</span>，<span class="num">付费转化率提高50%</span></li>
+          <li>Redis 记录订单游标保障数据连续性，消除重复处理与丢失风险；飞书告警增强服务可观测性</li>
+        </ul>
+      </div>
+
+      <!-- 腾讯 -->
+      <div class="exp-item">
+        <div class="exp-top">
+          <span class="exp-company">腾讯科技（北京）有限公司</span>
+          <span class="exp-role">Go 开发工程师</span>
+          <span class="exp-date">2020.12 — 2022.12</span>
+        </div>
+        <div class="exp-sub">腾讯体育业务部（2018.05起通过软通动力外派同团队，后转正）</div>
+        <div class="exp-label">内容：</div>
+        <div class="exp-desc">负责腾讯体育App接入层与赛事数据接入系统架构重构，支撑NBA赛季<span class="num">日活330万+</span>、北京冬奥会及东京奥运会等S级赛事。</div>
+        <div class="exp-label">业绩：</div>
+        <ul class="exp-list">
+          <li>主导体育App接入层微服务重构，核心业务拆分独立部署，<span class="num">平均QPS提升约3倍，接口耗时降低66%-81%</span>，增量单测覆盖率90%+，灰度上线零故障</li>
+          <li>重构赛事数据接入系统：Redis大Key拆分治理，Kafka保障数据有序不丢失，PProf性能分析驱动<span class="num">QPS提升60%</span>，引入ES优化查询响应</li>
+          <li>独立完成赛事开放平台设计与开发，设计字段级权限管控模块，保障东京奥运会、北京冬奥会数据分发服务零故障</li>
+          <li>基于 etcd 实现服务注册与发现；singleflight 机制防止瞬时流量缓存击穿；接入天机阁全链路追踪</li>
+        </ul>
+      </div>
+
+      <!-- 软通动力 -->
+      <div class="exp-item">
+        <div class="exp-top">
+          <span class="exp-company">软通动力信息技术（集团）股份有限公司</span>
+          <span class="exp-role">后台开发工程师</span>
+          <span class="exp-date">2018.05 — 2020.12</span>
+        </div>
+        <div class="exp-label">内容：</div>
+        <ul class="exp-list">
+          <li>腾讯体育App接入层日常开发及NBA中国官网Web端与App端接口开发维护</li>
+          <li>支撑NBA赛季<span class="num">日活330万+</span>高并发场景</li>
+        </ul>
+        <div class="exp-label">业绩：</div>
+        <div class="exp-body">表现优异，获转正腾讯内部岗位机会。</div>
+      </div>
+    </div>
+
+    <!-- 项目经历 -->
+    <div class="section">
+      <div class="section-title">项目经历</div>
+
+      <!-- 项目1: 广告投放系统 -->
+      <div class="proj-item">
+        <div class="proj-top">
+          <span class="proj-name">学而思网校广告投放与增长全链路系统</span>
+          <span class="proj-role">Go 开发工程师</span>
+          <span class="proj-date">2024.07 — 至今</span>
+        </div>
+        <div class="proj-label">项目内容：</div>
+        <div class="proj-desc">使用 Go（Kratos）+ MySQL + Redis + Kafka + Docker 构建广告投放全链路系统，覆盖运营端配置与数据看板、C端广告点击→注册→下载→领流课→购正价课完整漏斗，打通抖音/微信等多渠道归因，集成企业微信生态。<span class="num">投放转化ROI达2</span>。</div>
+        <div class="proj-label">项目职责：</div>
+        <ul class="proj-list">
+          <li>设计并实现运营端广告配置平台，支持多渠道投放策略配置、素材管理与效果数据看板</li>
+          <li>实现C端全链路转化漏斗，各环节事件埋点与归因追踪，支撑运营精细化投放决策</li>
+          <li>对接企业微信API，实现广告获客自动同步、用户标签管理及消息触达</li>
+          <li>建设增长活动中台，沉淀图书扫码、AI打分、老带新等标准化玩法模板</li>
+        </ul>
+      </div>
+
+      <!-- 项目2: 私域运营平台 -->
+      <div class="proj-item">
+        <div class="proj-top">
+          <span class="proj-name">直播电商私域运营一体化管理平台</span>
+          <span class="proj-role">Go 开发工程师</span>
+          <span class="proj-date">2023.03 — 2024.06</span>
+        </div>
+        <div class="proj-label">项目内容：</div>
+        <div class="proj-desc">使用 Gin + MySQL + Redis + Kafka + Docker 敏捷开发，实时监听抖店、视频号订单变化，自动抓取最新订单数据，打通直播下单→课程开通→企微沉淀完整链路。</div>
+        <div class="proj-label">项目职责：</div>
+        <ul class="proj-list">
+          <li>Timer + Cron 自动化脚本 + Supervisor 进程管理，实现订单自动抓取、批量处理、好友状态更新</li>
+          <li>Redis 记录订单游标，确保数据拉取连续完整，杜绝重复处理与丢失风险</li>
+          <li>Goroutine + Channel 并发优化企微好友同步，耗<span class="num">时由1h+降至分钟级</span></li>
+          <li>GORM 操作 MySQL 提升 CURD 效率与安全性；Gin 框架开发运营平台接口</li>
+          <li>飞书机器人告警提升服务可观测性</li>
+        </ul>
+      </div>
+
+      <!-- 项目3: 腾讯体育接入层重构 -->
+      <div class="proj-item">
+        <div class="proj-top">
+          <span class="proj-name">腾讯体育 App 接入层微服务重构</span>
+          <span class="proj-role">Go 接入层开发</span>
+          <span class="proj-date">2021.08 — 2022.12</span>
+        </div>
+        <div class="proj-label">项目内容：</div>
+        <div class="proj-desc">将单体接入层项目重构为微服务架构，核心业务拆分独立部署，提升部署效率与资源利用率。通过Go并发编程优化API性能，接口耗时降低80%。</div>
+        <div class="proj-label">项目职责：</div>
+        <ul class="proj-list">
+          <li>基于 gRPC 调用上游服务接口，提升服务间通信效率</li>
+          <li>使用 singleflight 扛住瞬时流量，防止缓存击穿，保障服务稳定性</li>
+          <li>项目接口单测全量覆盖率70%，增量覆盖率<span class="num">90%以上</span></li>
+          <li>基于 etcd 实现服务注册与发现；接入 ApiGateway 提供路由转发、流量控制、登录鉴权</li>
+        </ul>
+      </div>
+
+      <!-- 项目4: 赛事系统重构 -->
+      <div class="proj-item">
+        <div class="proj-top">
+          <span class="proj-name">腾讯体育赛事数据接入系统重构</span>
+          <span class="proj-role">Go 开发工程师</span>
+          <span class="proj-date">2020.11 — 2021.07</span>
+        </div>
+        <div class="proj-label">项目内容：</div>
+        <div class="proj-desc">为解决旧系统数据不一致、内存瓶颈、可观测性缺失等问题，使用 Go + gRPC + Kafka + Redis + Elasticsearch + Docker 重构为高并发高可用微服务架构。</div>
+        <div class="proj-label">项目职责：</div>
+        <ul class="proj-list">
+          <li>赛事系统架构重构为微服务模式，各子系统聚焦单一功能，优化维护性与扩展性</li>
+          <li>Redis 缓存 + singleflight 防穿透，突破内存瓶颈；Kafka 发布/订阅保障数据有序分发</li>
+          <li>ES 作为索引存储方案，显著提升赛事数据查询效率与响应速度</li>
+          <li>独立设计字段级权限管控的赛事开放平台，服务奥运会赛事数据分发</li>
+          <li>Go test 增量覆盖率达90%，CI/CD持续集成部署提升交付速度</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 教育经历 -->
+    <div class="section">
+      <div class="section-title">教育经历</div>
+      <div class="edu-row">
+        <span class="edu-school">吕梁学院</span>
+        <span class="edu-degree">本科</span>
+        <span class="edu-date">2012.09 — 2016.07</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
